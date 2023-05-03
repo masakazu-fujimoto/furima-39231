@@ -3,11 +3,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|E-mail|string|null: false, unique: true|
-|password|string|null: false|
+|email|string|null: false, unique: true|
+|encrypted_password|string|null: false|
 |name|string|null: false|
-|Kana-name|string|null: false|
-|date-of-birth|integer|null: false|
+|kana_surname|string|null: false|
+|kana_name|string|null: false|
+|date_of_birth|date|null: false|
 
 ### Association
 - has_many :items
@@ -17,15 +18,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|seller|string|null: false|
-|product-name|string|null: false|
-|description-of-item|text|null: false|
-|product-category|string|null: false|
-|commodity-condition|string|null: false|
-|shipping-charges|string|null: false|
-|region-of-origin|string|null: false|
-|days-of-ship|string|null: false|
+|user|references|null: false, foreign_key: true|
+|product_name|string|null: false|
+|description_of_item|text|null: false|
+|product_category_id||integer|null: false|
+|commodity_condition_id|integer|null: false|
+|shipping_charges_id|integer|null: false|
+|region_of_origin_id|integer|null: false|
+|days_of_ship_id|integer|null: false|
 |price|integer|null: false|
 
 ### Association
@@ -36,26 +36,25 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-|buyer|string|null: false|
-|what-i-buy|string|null: false|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
+- belongs_to :item
 - has_one :shipping-address
 
 ## shipping-addressテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|purchasing_id|integer|null: false, foreign_key: true|
-|post-code|integer|null: false|
-|prefectures|string|null: false|
+|purchasing|references|null: false, foreign_key: true|
+|post_code|string|null: false|
+|region_of_origin_id|string|null: false|
 |municipalities|string|null: false|
 |address|string|null: false|
-|building|string|
-|telephone-number|integer|null: false|
+|building|string||
+|telephone_number|string|null: false|
 
 ### Association
 - belongs_to :purchasing
