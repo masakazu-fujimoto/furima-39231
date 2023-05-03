@@ -5,6 +5,7 @@
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
+|confirmation_password|string|null: false|
 |name|string|null: false|
 |kana_surname|string|null: false|
 |kana_name|string|null: false|
@@ -23,7 +24,7 @@
 |description_of_item|text|null: false|
 |product_category_id||integer|null: false|
 |commodity_condition_id|integer|null: false|
-|shipping_charges_id|integer|null: false|
+|shipping_charge_id|integer|null: false|
 |region_of_origin_id|integer|null: false|
 |days_of_ship_id|integer|null: false|
 |price|integer|null: false|
@@ -44,7 +45,7 @@
 - belongs_to :item
 - has_one :shipping-address
 
-## shipping-addressテーブル
+## shipping_addressテーブル
 
 |Column|Type|Options|
 |------|----|-------|
