@@ -33,7 +33,7 @@
 - belongs_to :user
 - has_one :purchasing
 
-## purchasingsテーブル
+## purchasingテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -43,7 +43,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping-address
+- has_one :shipping_address
 
 ## shipping_addressテーブル
 
@@ -51,7 +51,7 @@
 |------|----|-------|
 |purchasing|references|null: false, foreign_key: true|
 |post_code|string|null: false|
-|region_of_origin_id|string|null: false|
+|region_of_origin_id|integer|null: false|
 |municipalities|string|null: false|
 |address|string|null: false|
 |building|string||
